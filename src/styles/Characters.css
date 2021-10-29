@@ -1,0 +1,52 @@
+.charactersContainer{
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0 15px 0 15px;
+    margin-top: 25px;
+}
+
+.characterCard{
+    border: 1px solid #ccc;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    width: 240px;
+    background-color: #ccc;
+    color: #000;
+}
+
+.characterCard:hover{
+    transform: rotate(-2deg);
+}
+
+.characterCard .characterImage{
+    background-color: #000;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+}
+
+.characterCard .characterImage img{
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+
+.characterCard .characterTitle{
+    transform: translateY(-50px);
+    color: #000;
+    margin-bottom: -50px;
+}
+
+.characterCard .characterTitle:hover{
+    transform: translateY(-50px) rotate(2deg);
+    cursor: pointer;
+}
+
+.darkCard{
+    color: #fff;
+    background-color: #242323;
+}
