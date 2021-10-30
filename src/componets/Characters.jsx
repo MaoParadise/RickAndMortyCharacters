@@ -9,11 +9,15 @@ const initialState = {
   const favoriteReducer = (state, action) => {
     switch (action.type) {
       case 'ADD_TO_FAVORITE':
-        return {
-          ...state,
-          favorites: [...state.favorites, action.payload]
-        };
-      default:
+        if(state.favorites.some(favorite => favorite.id === action.payload.id)){
+            return state;
+        }else{
+            return {
+                ...state,
+                favorites: [...state.favorites, action.payload]
+              };
+        }
+        default:
         return state;
     }
   }
@@ -35,6 +39,9 @@ const Characters = () => {
         dispatch({ type: 'ADD_TO_FAVORITE', payload: favorite })
       }
     
+    const isIncludeOnFavorite = (id) => {
+        return favorites.favorites.some(favorite => favorite.id === id);
+    }
 
     // ---------------------------
 
@@ -87,9 +94,10 @@ const Characters = () => {
                         <img src={character.image} alt={character.name} />
                         <span
                             onClick={() => handleFavorite(character)}
-                            className={`favoriteButton material-icons-round ` + `${theme ? 'darkFavoriteButton' : ''}`}> star_rate
-                        </span>
-                        
+                            className={`favoriteButton material-icons-round ` +
+                                        `${theme ? 'darkFavoriteButton' : ''}` +
+                                        `${isIncludeOnFavorite(character.id) ? ' favorite-color' : '' }` }> star_rate
+                        </span>                        
                     </div>
                     <h2 className='characterTitle'> {character.name} </h2>
                     <div className='characterInformation '>

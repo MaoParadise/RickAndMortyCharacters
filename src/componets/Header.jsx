@@ -9,7 +9,7 @@ const Header = () => {
     return (
         <div className="Header">
             <h1> Rick And Morty's characters </h1>
-            <button className='modeButton' id='modeButton' type="button" onClick={handleTheme} >{ theme ? 'Dark Move' : 'Light Mode'}</button>
+            <button className='modeButton darkButton' id='modeButton' type="button" onClick={handleTheme} >{ theme ? 'Light Mode' : 'Dark Move'}</button>
         </div>
     );
 }

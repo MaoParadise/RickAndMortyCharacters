@@ -7,10 +7,12 @@ const useTheme = () => {
         setTheme(!theme);
         if(!theme){
             document.body.classList.add('darkBody');
-            document.getElementById('modeButton').classList.add('darkButton');
+            document.getElementById('modeButton').classList.remove('darkButton');
+            document.getElementById('modeButton').classList.add('lightButton');
         }else{
             document.body.classList.remove('darkBody');
-            document.getElementById('modeButton').classList.remove('darkButton');
+            document.getElementById('modeButton').classList.add('darkButton');
+            document.getElementById('modeButton').classList.remove('lightButton');
         }
     }
 

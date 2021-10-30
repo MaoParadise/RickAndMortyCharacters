@@ -2,9 +2,10 @@
     display: flex; 
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
+    column-gap: 2rem;
+    row-gap: 1.5rem;
     padding: 0 15px 0 15px;
-    margin-top: 25px;
+    margin-bottom: 15px;
 }
 
 .charactersContainer .favoritesContainer{
@@ -26,11 +27,11 @@
 }
 
 .favoriteCard{
+    margin-top: 15px;
     transform: rotate(0deg);
     border: 1px solid #ccc;
     border-radius: 1rem;
     width: 160px;
-    margin-bottom: 15px;
 }
 
 .favoriteCard:hover{
@@ -76,11 +77,21 @@
     color: transparent;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #242323;
+    color: rgba(36, 35, 35, 0.5);
 }
 
 .characterCard .characterImage .darkFavoriteButton{
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: rgb(0, 0, 0);
+}
+
+.characterCard .characterImage .favoriteButton:hover{
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgb(255, 187, 0);
+}
+
+.characterCard .characterImage .favorite-color{
+    color: rgb(255, 187, 0);
 }
 
 .characterCard .characterImage img{

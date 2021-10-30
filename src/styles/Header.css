@@ -6,9 +6,7 @@
 }
 
 .Header .modeButton{
-    background-color: #c2b4b4;
-    border: none;
-    color: #fff;
+    
     font-weight: bold;
     margin: 10px;
     padding: 0 24px 0 24px;
@@ -19,5 +17,11 @@
 .Header .darkButton{
     color: #fff;
     background-color: #242323;
-    border: 2px solid #c2b4b4;
+    border: 1px solid #c2b4b4;
+}
+
+.Header .lightButton{
+    background-color: #c2b4b4;
+    border: none;
+    color: #fff;
 }
