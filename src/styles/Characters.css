@@ -7,6 +7,15 @@
     margin-top: 25px;
 }
 
+.charactersContainer .favoritesContainer{
+    width: 100%;
+    padding: 0 50px 15px 50px;
+    display: flex;
+    justify-content:space-around;
+    flex-wrap: wrap;
+}
+
+
 .characterCard{
     border: 1px solid #ccc;
     border-top-left-radius: 2rem;
@@ -14,6 +23,37 @@
     width: 240px;
     background-color: #ccc;
     color: #000;
+}
+
+.favoriteCard{
+    transform: rotate(0deg);
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    width: 160px;
+    margin-bottom: 15px;
+}
+
+.favoriteCard:hover{
+    transform: rotate(-2deg);
+    cursor: pointer;
+}
+
+.favoriteCard img{
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    width: 100%;
+    height: auto;
+}
+
+.searchCharacter{
+    width: 100%;
+    padding: 10px 0 10px 0;
+    border-radius: 2rem;
+    margin-bottom: 2px;
+    border: 1px solid #242323;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .characterCard:hover{
@@ -24,6 +64,23 @@
     background-color: #000;
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
+    position: relative;
+}
+
+.characterCard .characterImage .favoriteButton{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;   
+    font-size: 2rem;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #242323;
+}
+
+.characterCard .characterImage .darkFavoriteButton{
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
 }
 
 .characterCard .characterImage img{
@@ -31,7 +88,6 @@
     border-top-right-radius: 2rem;
     width: 100%;
     height: auto;
-    cursor: pointer;
 }
 
 
