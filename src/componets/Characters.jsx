@@ -8,16 +8,18 @@ const Characters = () => {
 
     const [characters, setCharacters] = useState([]);
 
-    useEffect(() => { // se puede usar useEffect para hacer request a una api 
-        fetch('https://rickandmortyapi.com/api/character/')
+    useEffect( () => { // se puede usar useEffect para hacer request a una api 
+            fetch(`https://rickandmortyapi.com/api/character/`)
             .then(response => response.json())
-            .then(data => setCharacters(data.results)) // en results esta la info de los personajes
+            .then(data => {
+                setCharacters(data.results);
+            }) // en results esta la info de los personajes
     }, []) // si dejas el array vacio, se ejecuta solo una vez
     
 
-
     return (
         <div className='charactersContainer'>
+            {console.log(characters)}
             {characters.map(character => {
 
                 // { `${theme ? 'dark-information' : ''}` }
