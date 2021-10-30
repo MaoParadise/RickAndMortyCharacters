@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import ThemeContext from '../context/ThemeContext';
 import '../styles/Characters.css'
 
 const Characters = () => {
+
+    const { theme } = useContext(ThemeContext);
 
     const [characters, setCharacters] = useState([]);
 
@@ -12,16 +15,19 @@ const Characters = () => {
     }, []) // si dejas el array vacio, se ejecuta solo una vez
     
 
+
     return (
         <div className='charactersContainer'>
             {characters.map(character => {
 
-                return  <div id="characterCard" className='characterCard'key={character.id}>
+                // { `${theme ? 'dark-information' : ''}` }
+                return  <div id="characterCard" className={`characterCard `+`${theme ? 'darkCard' : ''}` }  key={character.id}>
                             <div className='characterImage'>
                                 <img src={character.image} alt={character.name} />    
                             </div>
                             <h2 className='characterTitle'> {character.name} </h2>
-                            <div className='characterInformation'>
+                            <div className='characterInformation '>
+                                <p> context:  </p>
                                 <p> status : { character.status} </p>
                                 <p> specie : { character.species} </p>
                                 <p> gender : { character.gender} </p>
