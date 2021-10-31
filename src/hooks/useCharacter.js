@@ -1,7 +1,6 @@
-import { useState, useEffect, useMemo, useReducer } from "react";
+import { useState, useEffect, useMemo, useReducer, useCallback } from "react";
 
 const useCharacter = () => {
-    
     const [characters, setCharacters] = useState([]);
 
     useEffect( () => { // se puede usar useEffect para hacer request a una api 
@@ -15,9 +14,13 @@ const useCharacter = () => {
 
     const [search, setSearch] = useState('');
 
-    const handleSearch = (event) => {
+    // const handleSearch = (event) => {
+    //     setSearch(event.target.value);
+    // }
+
+    const handleSearch = useCallback((event) => {
         setSearch(event.target.value);
-    }
+    }, [])
 
     const filteredCharacters = useMemo(() => 
         characters.filter((character) =>{
@@ -37,6 +40,7 @@ const useCharacter = () => {
         switch (action.type) {
           case 'ADD_TO_FAVORITE':
             if(state.favorites.some(favorite => favorite.id === action.payload.id)){
+                
                 return state;
             }else{
                 return {

@@ -2,36 +2,21 @@ import React, { useContext } from 'react';
 import ThemeContext from '../context/ThemeContext';
 import { useCharacter } from '../hooks/useCharacter';
 import '../styles/Characters.css';
-
-
-  
-
+import Search from './Search';
 
 
 const Characters = () => {
 
     const { theme } = useContext(ThemeContext);
 
-    const { favorites, handleFavorite, isIncludeOnFavorite,search, handleSearch, filteredCharacters} = useCharacter();
-
-    // const [characters, setCharacters] = useState([]);
-
-
-    
-
-    // const filteredCharacters = characters.filter((character) => {
-    //     return character.name.toLowerCase().includes(search.toLowerCase());
-    // });
-
-    
-
-    // useEffect( () => { // se puede usar useEffect para hacer request a una api 
-    //         fetch(`https://rickandmortyapi.com/api/character/`)
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             setCharacters(data.results);
-    //         }) // en results esta la info de los personajes
-    // }, []) // si dejas el array vacio, se ejecuta solo una vez
+    const { 
+        favorites,
+        handleFavorite,
+        isIncludeOnFavorite,
+        search,
+        handleSearch,
+        filteredCharacters
+    } = useCharacter();  
     
 
     return (
@@ -46,9 +31,8 @@ const Characters = () => {
                 ))}
             </div>
            
-            <input className='searchCharacter' placeholder='Search by name' type='text' value={search} onChange={handleSearch} /> 
-                { // si el evento tiene un value, no se puede usar el onChange con una funcion anonima 
-                }
+
+           <Search search={search} handleSearch={handleSearch} /> 
 
 
             {filteredCharacters.map(character => (
