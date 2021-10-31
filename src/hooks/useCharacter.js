@@ -36,18 +36,26 @@ const useCharacter = () => {
         favorites: []
       }
       
+
+    
+
       const favoriteReducer = (state, action) => {
         switch (action.type) {
           case 'ADD_TO_FAVORITE':
             if(state.favorites.some(favorite => favorite.id === action.payload.id)){
-                
                 return state;
             }else{
+                
                 return {
                     ...state,
                     favorites: [...state.favorites, action.payload]
                   };
             }
+            case 'REMOVE_FROM_FAVORITE':
+                return {
+                    ...state,
+                    favorites: state.favorites.filter(favorite => favorite.id !== action.payload.id)
+                  };
             default:
             return state;
         }
@@ -56,7 +64,17 @@ const useCharacter = () => {
     const [favorites, dispatch] = useReducer(favoriteReducer, initialState);
 
     const handleFavorite = favorite => {
-        dispatch({ type: 'ADD_TO_FAVORITE', payload: favorite })
+        if(isIncludeOnFavorite(favorite.id)){
+            dispatch({
+                type: 'REMOVE_FROM_FAVORITE',
+                payload: favorite
+            })
+        }else{
+            dispatch({ 
+                type: 'ADD_TO_FAVORITE',
+                payload: favorite
+            })
+        }
       }
     
     const isIncludeOnFavorite = (id) => {
