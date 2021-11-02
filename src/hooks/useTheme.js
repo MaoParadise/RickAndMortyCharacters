@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 const useTheme = () => {
     const [theme, setTheme] = useState(false);
-
     const handleTheme = () => {
         setTheme(!theme);
         if(!theme){
@@ -18,7 +17,7 @@ const useTheme = () => {
 
     return{
         theme, 
-        handleTheme
+        handleTheme,
     }
 }
 

@@ -1,22 +1,31 @@
 import React, { useContext } from 'react';
 import ThemeContext from '../context/ThemeContext';
-import { useCharacter } from '../hooks/useCharacter';
+//import { useCharacter } from '../hooks/useCharacter';
 import '../styles/Characters.css';
 import Search from './Search';
 
 
 const Characters = () => {
 
-    const { theme } = useContext(ThemeContext);
-
     const { 
+        theme,
         favorites,
         handleFavorite,
         isIncludeOnFavorite,
         search,
         handleSearch,
-        filteredCharacters
-    } = useCharacter();  
+        filteredCharacters,
+    } = useContext(ThemeContext);
+
+    // const { 
+    //     favorites,
+    //     handleFavorite,
+    //     isIncludeOnFavorite,
+    //     search,
+    //     handleSearch,
+    //     filteredCharacters,
+    //     getRandomCharacters,
+    // } = useCharacter();  
     
 
     return (
@@ -26,6 +35,10 @@ const Characters = () => {
                     <div className="favoriteCard" key={favorite.id}>
                         <img src={favorite.image} alt={favorite.name} />
                         {favorite.name}
+                        <span
+                            onClick={() => handleFavorite(favorite)}
+                            className={`favoriteButton material-icons-round favorite-color` }> star_rate
+                        </span> 
                     </div>
                 
                 ))}

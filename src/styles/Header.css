@@ -5,6 +5,24 @@
     padding: 0 30px 0 30px;
 }
 
+.Header .title{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Header .title .random{
+    cursor: pointer;
+    transform: rotate(-8deg);
+    margin-left: 3rem;
+}
+
+@media (max-width: 640px) {
+    .Header .title .random{
+        margin-left: 1rem;
+    }
+}
+
+
 .Header .modeButton{
     
     font-weight: bold;

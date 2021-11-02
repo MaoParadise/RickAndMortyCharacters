@@ -31,6 +31,7 @@
     border: 1px solid #ccc;
     border-radius: 1rem;
     width: 160px;
+    position: relative;
 }
 
 .favoriteCard:hover{
@@ -67,7 +68,8 @@
     position: relative;
 }
 
-.characterCard .characterImage .favoriteButton{
+.characterCard .characterImage .favoriteButton,
+.favoriteCard .favoriteButton{
     position: absolute;
     top: 5px;
     right: 5px;
@@ -89,7 +91,8 @@
     -webkit-text-stroke-color: rgb(255, 187, 0);
 }
 
-.characterCard .characterImage .favorite-color{
+.characterCard .characterImage .favorite-color,
+.favoriteCard .favorite-color{
     color: rgb(255, 187, 0);
 }
 

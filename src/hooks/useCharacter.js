@@ -1,15 +1,35 @@
 import { useState, useEffect, useMemo, useReducer, useCallback } from "react";
 
+
+
 const useCharacter = () => {
     const [characters, setCharacters] = useState([]);
 
-    useEffect( () => { // se puede usar useEffect para hacer request a una api 
-        fetch(`https://rickandmortyapi.com/api/character/`)
+    const getRandomArrayChar = (min, max, loop) =>{
+        let randomCharacters = [];
+        for(let i = 0; i < loop; i++){
+            randomCharacters.push(Math.floor(Math.random() * (max - min + 1)) + min);
+        }
+        return randomCharacters;
+    }
+
+    const getRandomCharacters = () =>{
+        fetch(`https://rickandmortyapi.com/api/character/`+getRandomArrayChar(1, 671, 20))
         .then(response => response.json())
         .then(data => {
-            setCharacters(data.results);
+            setCharacters(data);
+        })
+    }
+    
+
+    useEffect( () => { // se puede usar useEffect para hacer request a una api 
+        fetch(`https://rickandmortyapi.com/api/character/`+getRandomArrayChar(1, 671, 20))
+        .then(response => response.json())
+        .then(data => {
+            setCharacters(data);
         }) // en results esta la info de los personajes
     }, []) // si dejas el array vacio, se ejecuta solo una vez
+
 
 
     const [search, setSearch] = useState('');
@@ -20,7 +40,7 @@ const useCharacter = () => {
 
     const handleSearch = useCallback((event) => {
         setSearch(event.target.value);
-    }, [])
+    }, []);
 
     const filteredCharacters = useMemo(() => 
         characters.filter((character) =>{
@@ -90,6 +110,7 @@ const useCharacter = () => {
         filteredCharacters,
         search,
         handleSearch,
+        getRandomCharacters,
     }
 }
 
