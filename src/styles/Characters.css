@@ -119,3 +119,36 @@
     color: #fff;
     background-color: #242323;
 }
+
+
+@media (max-width: 640px) {
+    .charactersContainer{
+        padding: 0;
+    }
+    .charactersContainer .favoritesContainer{
+        padding: 0;
+    }
+
+    .characterCard{
+        width: 160px;
+        font-size: 0.8rem;
+    }
+
+    .characterCard .characterTitle{
+        transform: translateY(-60px);
+    }
+    
+    .characterCard .characterTitle:hover{
+        transform: translateY(-60px) rotate(2deg);
+    }
+
+
+    .characterCard .characterInformation{
+        padding-top: 10px;
+    }
+
+    .characterCard .characterInformation p{
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+}
