@@ -15,6 +15,9 @@
     flex-wrap: wrap;
 }
 
+.charactersContainer .favoritesContainer{
+   
+}
 
 .characterCard{
     border: 1px solid #ccc;
